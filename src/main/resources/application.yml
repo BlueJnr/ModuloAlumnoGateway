@@ -1,0 +1,20 @@
+server:
+   port: 8099
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://modulo-alumno-eureka.herokuapp.com/eureka #http://localhost:8761/eureka/
+
+ 
+zuul:
+  routes:
+     forma1:
+      path: /modulo-alumno-client/**
+      url:  https://modulo-alumno.herokuapp.com #http://localhost:8080/
+     forma2:
+      path: /modulo-alumno-api/**
+      serviceId: MODULO-ALUMNO-CLIENT
+     forma3:
+      path: /modulo-alumno-jdbc-client/**
+      url:  https://modulo-alumno-jdbc.herokuapp.com #http://localhost:8080/
